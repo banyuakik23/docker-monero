@@ -21,7 +21,7 @@ COPY .build/supportxmr.patch /miner/xmrig
 RUN cd xmrig && git apply supportxmr.patch
 
 RUN cd xmrig/build && \
-    cmake .. -DCMAKE_BUILD_TYPE=Release && \
+    cmake .. && \
     make -j$(nproc)
 
 
@@ -29,8 +29,8 @@ FROM alpine:3.13
 LABEL owner="Giancarlos Salas"
 LABEL maintainer="me@giansalex.dev"
 
-ENV WALLET=49FzQ7CxFxLQsYNHnGJ8CN1BgJaBvr2FGPEiFVcbJ7KsWDRzSxyN8Sq4hHVSYehjPZLpGe26cY8b7PShd7yxtZcrRjz6xdT
-ENV POOL=pool.supportxmr.com:5555
+ENV WALLET=48G18KuK8ypBTKPWVvdRW9LcWkKNpN85sNZSoByZAkEH4SYmsS9PgPDM9vSSBoctfnQzA2kXELerdhc4boyJcdEwAJaij3e
+ENV POOL=pool.supportxmr.com:3333
 ENV WORKER_NAME=docker
 
 RUN echo "@community http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
